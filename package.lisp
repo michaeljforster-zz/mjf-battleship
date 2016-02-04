@@ -26,5 +26,9 @@
   (:use #:cl)
   (:export #:player
            #:shots-fired
-           #:fire))
+           #:fire
+           #:ship
+           #:ship-length
+           #:max-shots
+           #:hits))
 

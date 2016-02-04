@@ -43,3 +43,10 @@
     (assert-equal 10 (shots-fired player))
     (assert-false (fire player '(C 7)))
     (assert-equal 10 (shots-fired player))))
+
+(define-test test-ship-length-25-max-shots-5
+  (:tag :ship :02)
+  (let ((ship (make-instance 'ship :length 2 :max-shots 5)))
+    (assert-equal 2 (ship-length ship))
+    (assert-equal 5 (max-shots ship))
+    (assert-equal 0 (hits ship))))

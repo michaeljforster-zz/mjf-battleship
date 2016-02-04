@@ -14,3 +14,8 @@
     (incf (shots-fired object)))
   nil)
 
+(defclass ship ()
+  ((length :initarg :length :reader ship-length)
+   (max-shots :initarg :max-shots :reader max-shots)
+   (hits :initform 0 :accessor hits)))
+
