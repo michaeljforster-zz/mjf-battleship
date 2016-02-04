@@ -4,3 +4,8 @@
 
 ;;; "mjf-battleship" goes here. Hacks and glory await!
 
+(defclass player ()
+  ())
+
+(defmethod shots-fired ((object player))
+  0)

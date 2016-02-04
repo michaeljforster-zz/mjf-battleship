@@ -23,3 +23,7 @@
 ;;; SOFTWARE.
 
 (in-package #:mjf-battleship-test)
+
+(define-test test-player-has-not-fired-yet
+  (:tag :player)
+  (assert-equal (shots-fired (make-instance 'player)) 0))

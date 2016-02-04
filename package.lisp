@@ -23,5 +23,7 @@
 ;;; SOFTWARE.
 
 (defpackage #:mjf-battleship
-  (:use #:cl))
+  (:use #:cl)
+  (:export #:player
+           #:shots-fired))
 
