@@ -4,9 +4,13 @@
 
 ;;; "mjf-battleship" goes here. Hacks and glory await!
 
+(defparameter *player-max-shots* 10)
+
 (defclass player ()
   ((shots-fired :initform 0 :accessor shots-fired)))
 
 (defmethod fire ((object player) coordinate)
-  (incf (shots-fired object))
+  (when (< (shots-fired object) *player-max-shots*)
+    (incf (shots-fired object)))
   nil)
+

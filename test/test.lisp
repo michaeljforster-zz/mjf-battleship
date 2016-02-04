@@ -26,12 +26,20 @@
 
 (define-test test-player-has-not-fired-yet
   (:tag :player :01)
-  (assert-equal (shots-fired (make-instance 'player)) 0))
+  (assert-equal 0 (shots-fired (make-instance 'player))))
 
 (define-test test-player-can-fire-shot-at-coordinate
   (:tag :player :01)
   (let ((player (make-instance 'player)))
     (fire player '(A 6))
-    (assert-equal (shots-fired player) 1)
+    (assert-equal 1 (shots-fired player))
     (fire player '(A 7))
-    (assert-equal (shots-fired player) 2)))
+    (assert-equal 2 (shots-fired player))))
+
+(define-test test-player-cannot-fire-more-than-ten-shots
+  (:tag :player :01)
+  (let ((player (make-instance 'player)))
+    (dotimes (i 10) (fire player `(B ,i)))
+    (assert-equal 10 (shots-fired player))
+    (assert-false (fire player '(C 7)))
+    (assert-equal 10 (shots-fired player))))
