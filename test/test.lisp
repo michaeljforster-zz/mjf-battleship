@@ -25,5 +25,13 @@
 (in-package #:mjf-battleship-test)
 
 (define-test test-player-has-not-fired-yet
-  (:tag :player)
+  (:tag :player :01)
   (assert-equal (shots-fired (make-instance 'player)) 0))
+
+(define-test test-player-can-fire-shot-at-coordinate
+  (:tag :player :01)
+  (let ((player (make-instance 'player)))
+    (fire player '(A 6))
+    (assert-equal (shots-fired player) 1)
+    (fire player '(A 7))
+    (assert-equal (shots-fired player) 2)))

@@ -25,5 +25,6 @@
 (defpackage #:mjf-battleship
   (:use #:cl)
   (:export #:player
-           #:shots-fired))
+           #:shots-fired
+           #:fire))
 

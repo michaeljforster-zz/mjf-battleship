@@ -5,7 +5,8 @@
 ;;; "mjf-battleship" goes here. Hacks and glory await!
 
 (defclass player ()
-  ())
+  ((shots-fired :initform 0 :accessor shots-fired)))
 
-(defmethod shots-fired ((object player))
-  0)
+(defmethod fire ((object player) coordinate)
+  (incf (shots-fired object))
+  nil)
